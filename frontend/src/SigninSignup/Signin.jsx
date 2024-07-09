@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Axios from "../config/Axios";
+import Footer from "../Footer_Header/footer";
+import Header from "../Footer_Header/Header";
 import "./Signin.css";
 
 const Signin = () => {
@@ -35,11 +37,12 @@ const Signin = () => {
 
     return (
         <div className="signin">
+            <Header/>
             <h1>Sign In</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Email"
+                    placeholder="user name"
                     value={user_name}
                     onChange={(e) => setEmail(e.target.value)}
                 />
@@ -54,6 +57,7 @@ const Signin = () => {
                 </button>
                 <button type="button" onClick={() => navigate("/signup")}>Sign Up</button>
             </form>
+            <Footer/>
         </div>
     );
 }
