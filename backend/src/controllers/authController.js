@@ -1,6 +1,7 @@
 const { http_status_code } = require('../utils/enum');
 const userModel = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const client = require("../utils/database");
 const jwt = require("../utils/jwtGenerator");
 
 async function registerUser(req, res) {
@@ -29,6 +30,7 @@ async function registerUser(req, res) {
     }
 }
 
+
 async function loginUser(req, res) {
     try {
       const {user_name, password} = req.body;
@@ -56,4 +58,13 @@ async function loginUser(req, res) {
       }
   }
 
-module.exports = { loginUser, registerUser };
+async function getAll(req,res){
+    const users = await client.query(`Select * from users`);
+    if(users){
+        return res.status(201).json(users.rows);
+    }
+    else{
+        return res.status(400).send({message: "Invalid credentials"});
+    }
+}
+module.exports = { loginUser, registerUser,getAll };
