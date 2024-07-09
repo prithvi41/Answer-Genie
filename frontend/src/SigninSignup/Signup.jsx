@@ -28,7 +28,7 @@ const Signup = () => {
             }
             else alert("User data is not valid");
         } catch (err) {
-            setError(err.response);
+            setError(err.response.data);
             setLoading(false);
         }
     };
