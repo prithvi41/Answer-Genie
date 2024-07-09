@@ -1,7 +1,6 @@
 const { http_status_code } = require('../utils/enum');
 const userModel = require("../models/userModel");
 const bcrypt = require("bcrypt");
-const client = require("../utils/database");
 const jwt = require("../utils/jwtGenerator");
 
 async function registerUser(req, res) {
@@ -10,14 +9,14 @@ async function registerUser(req, res) {
         if(!email || !user_name || !password) {
             return res.status(http_status_code.BAD_REQUEST).send("misssing required fields");
         }
-        const userExist = await userModel.getUserByUserName(user_name);
+        const userExist = await userModel.getUserByUserNameAndEmail(user_name, email);
         if(userExist && userExist.rows.length > 0) {
-            return res.status(http_status_code.BAD_REQUEST).send("user already exist");
+            return res.status(http_status_code.BAD_REQUEST).send("user_name or email already exist");
         }
         const salt = await bcrypt.genSalt(10);
         const hashedPasssword = await bcrypt.hash(password, salt);
         await userModel.createUser(email, user_name, hashedPasssword);
-        const result = await userModel.getUserByUserName(user_name);
+        const result = await userModel.getUserByUserNameAndEmail(user_name, email);
         return res.status(http_status_code.CREATED).send({
             id: result.rows[0].id,
             user_name: result.rows[0].user_name,
@@ -30,15 +29,13 @@ async function registerUser(req, res) {
     }
 }
 
-
 async function loginUser(req, res) {
     try {
       const {user_name, password} = req.body;
       if(!user_name || !password) {
           return res.status(400).send("misssing required fields");
       }
-      const userDetails = await userModel.getUserByUserName(user_name);
-      console.log(userDetails.rows[0]);
+      const userDetails = await userModel.getUserByUserNameAndEmail(user_name);
       if(userDetails.rows.length === 0) {
           return res.status(http_status_code.UNAUTHORIZED).send("user not registered");
       }
@@ -58,13 +55,4 @@ async function loginUser(req, res) {
       }
   }
 
-async function getAll(req,res){
-    const users = await client.query(`Select * from users`);
-    if(users){
-        return res.status(201).json(users.rows);
-    }
-    else{
-        return res.status(400).send({message: "Invalid credentials"});
-    }
-}
-module.exports = { loginUser, registerUser,getAll };
+module.exports = { loginUser, registerUser };
