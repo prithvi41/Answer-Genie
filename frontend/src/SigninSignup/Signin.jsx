@@ -6,7 +6,6 @@ import "./Signin.css";
 const Signin = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
@@ -21,9 +20,15 @@ const Signin = () => {
                 password,
             });
             localStorage.setItem("token", JSON.stringify(res.data.accessToken));
-            navigate("/");
+            localStorage.setItem("email", email); // Store email in localStorage
+            navigate("/newpage");
         } catch (err) {
-            setError(err.response.data);
+            console.log('Error:', err); // Debug error
+            if (err.response && err.response.data) {
+                alert(err.response.data.message || "An error occurred");
+            } else {
+                alert("An unexpected error occurred.");
+            }
             setLoading(false);
         }
     };
@@ -47,8 +52,7 @@ const Signin = () => {
                 <button type="submit" disabled={loading}>
                     {loading ? "Loading..." : "Sign In"}
                 </button>
-                {error && <span className="error">{error}</span>}
-                <button onClick={() => navigate("/signup")}>Sign Up</button>
+                <button type="button" onClick={() => navigate("/signup")}>Sign Up</button>
             </form>
         </div>
     );

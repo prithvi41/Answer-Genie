@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import Axios from "../config/Axios";
+import "./Signup.css";
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -10,7 +11,6 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
