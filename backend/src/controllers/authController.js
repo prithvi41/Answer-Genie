@@ -3,6 +3,7 @@ const userModel = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const client = require("../utils/database");
 const jwt = require("../utils/jwtGenerator");
+const { handleIncomingData } = require('../call-api');
 
 async function registerUser(req, res) {
     try {
@@ -67,4 +68,16 @@ async function getAll(req,res){
         return res.status(400).send({message: "Invalid credentials"});
     }
 }
-module.exports = { loginUser, registerUser,getAll };
+
+// New function to handle form submission
+async function submitForm(req, res) {
+    try {
+        const data = req.body;
+        const dietPlan = await handleIncomingData(data);
+        res.json({ dietPlan });
+    } catch (err) {
+        res.status(http_status_code.INTERNAL_SERVER_ERROR).json({ error: err.message });
+    }
+}
+
+module.exports = { loginUser, registerUser,getAll ,submitForm};

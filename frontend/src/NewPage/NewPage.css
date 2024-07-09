@@ -1,0 +1,78 @@
+h1{
+    text-align: center;
+  }
+  
+  .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  textarea{
+    margin-top: 0rem;
+    height: 5rem;
+    padding: 0.5rem;
+    border: 2px solid #007bff;
+    border-radius: 3px;
+  }
+  
+  .input{
+    margin: 1rem;
+    width: 70%;
+    padding: 1 rem;
+    border: 2px solid #007bff;
+    border-radius: 3px;
+  }
+  
+  .text{
+    display: flex;
+    flex-direction: column;
+    width: 71%;
+  }
+  
+  input{
+    height : 1.5rem;
+  }
+  
+  label{
+    margin: 0.5rem;
+  }
+  
+  button{
+    margin: 1rem;
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+    border-radius: 2px;
+  }
+  
+  button:hover{
+    background-color: #0056b3;
+  }
+  
+  .plan{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    white-space: pre-line;
+    font-family: Arial, sans-serif;
+  }
+  
+  .plan button{
+    width: 5rem;
+  }
+  
+  .plan p{
+    border: 2px solid #007bff;
+    padding: 2rem;
+    width: 90%;
+    /* text-align: center; */
+  }
+  
+  
+  
+  
