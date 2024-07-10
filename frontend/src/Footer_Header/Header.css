@@ -1,4 +1,5 @@
 /* src/components/Header.css */
+
 .header {
     background-color: #333;
     color: #fff;
@@ -6,31 +7,52 @@
     position: fixed;
     top: 0;
     width: 100%;
-}
-
-.header nav ul {
-    list-style: none;
     display: flex;
     justify-content: center;
-    margin: 0;
-    padding: 0;
+    align-items: center;
 }
 
-.header nav ul li {
-    margin: 0 15px;
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px; /* Adjust this as needed */
+    padding: 0 10px;
 }
 
-.header nav ul li a,
-.header nav ul li button {
-    color: #fff;
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+.header-left {
+    flex: 1;
 }
 
-.header nav ul li button:hover,
-.header nav ul li a:hover {
-    text-decoration: underline;
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-icon {
+    height: 100px; /* Adjust size as needed */
+    width: auto;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logout-button {
+    background-color: #f44336; /* Red background color */
+    color: white; /* White text color */
+    padding: 5px 10px; /* Reduced padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    font-size: 20px; /* Reduced font size */
+    margin-right: none;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f; /* Darker red when hovering */
 }

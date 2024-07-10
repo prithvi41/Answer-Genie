@@ -1,15 +1,16 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Axios from "../config/Axios";
 import Footer from "../Footer_Header/footer";
-import Header from "../Footer_Header/Header";
+
+import LockIcon from "../logo.png"; // Import your Lock icon
+
 import "./Signin.css";
 
 const Signin = () => {
-    const [user_name, setEmail] = useState("");
+    const [user_name, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -22,10 +23,10 @@ const Signin = () => {
                 password,
             });
             localStorage.setItem("token", JSON.stringify(res.data.accessToken));
-            localStorage.setItem("email", user_name); // Store email in localStorage
+            localStorage.setItem("email", user_name); // Store username in localStorage
             navigate("/newpage");
         } catch (err) {
-            console.log('Error:', err); // Debug error
+            console.error('Error:', err); // Log the error for debugging
             if (err.response && err.response.data) {
                 alert(err.response.data.message || "An error occurred");
             } else {
@@ -37,27 +38,44 @@ const Signin = () => {
 
     return (
         <div className="signin">
-            <Header/>
-            <h1>Sign In</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="user name"
-                    value={user_name}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit" disabled={loading}>
-                    {loading ? "Loading..." : "Sign In"}
-                </button>
-                <button type="button" onClick={() => navigate("/signup")}>Sign Up</button>
-            </form>
-            <Footer/>
+            
+            <div className="signin-content">
+                <img src={LockIcon} alt="Lock Icon" className="Logo" style={{ width: '140px', height: 'auto' }}/>
+                <h1>Sign In</h1>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label>Email Address</label>
+                        <div className="input-container">
+                            
+                            <input
+                                type="text"
+                                placeholder="Username"
+                                value={user_name}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <div className="input-container">
+                            
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <button type="submit" className="login" disabled={loading}>
+                        {loading ? "Loading..." : "Sign In"}
+                    </button>
+                    <button type="button" className="signup-button" onClick={() => navigate("/signup")}>
+                        Sign Up
+                    </button>
+                </form>
+            </div>
+            <Footer />
         </div>
     );
 }

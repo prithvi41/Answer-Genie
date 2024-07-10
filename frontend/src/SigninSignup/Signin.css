@@ -1,12 +1,35 @@
 /* Signin.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .signin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f5f5f5;
+    background-image: url("./background.jpg"); /* Adjust path to your background image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.signin-content {
+    margin-bottom: 20px;
 }
 
 .signin h1 {
@@ -18,28 +41,35 @@
 .signin form {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.signin input {
+.form-group {
     margin-bottom: 15px;
-    padding: 10px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
     border: 1px solid #ddd;
     border-radius: 4px;
+    padding: 10px;
+}
+
+.input-container img {
+    margin-right: 10px;
+    width: 20px; /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    color: #666;
+}
+
+.input-container input {
+    flex: 1;
+    border: none;
+    outline: none;
     font-size: 16px;
 }
 
-.signin input:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-.signin button {
+.login, .signup-button {
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -48,29 +78,28 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
-.signin button:hover {
+.login:hover, .signup-button:hover {
     background-color: #0056b3;
 }
 
-.signin button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
-
-.signin .error {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.signin .signup-button {
-    margin-top: 10px;
+.signup-button {
     background-color: #6c757d;
 }
 
-.signin .signup-button:hover {
+.signup-button:hover {
     background-color: #5a6268;
+}
+
+.show-hide {
+    cursor: pointer;
+    color: #666;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
 }

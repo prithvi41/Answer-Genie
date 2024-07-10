@@ -1,7 +1,8 @@
 // src/components/Header.js
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import Icon from "../logo.png"; // Adjust path to your local icon
 
 const Header = () => {
     const navigate = useNavigate();
@@ -15,13 +16,15 @@ const Header = () => {
 
     return (
         <header className="header">
-            <nav>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/signup">Sign Up</Link></li>
-                    <li><button onClick={handleLogout}>Logout</button></li>
-                </ul>
-            </nav>
+            <div className="header-content">
+                <div className="header-left"></div>
+                <div className="header-center">
+                    <img src={Icon} alt="Icon" className="header-icon" />
+                </div>
+                <div className="header-right">
+                    <button className="logout-button" onClick={handleLogout}>Logout</button>
+                </div>
+            </div>
         </header>
     );
 };

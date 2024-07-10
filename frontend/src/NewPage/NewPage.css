@@ -1,78 +1,151 @@
-h1{
-    text-align: center;
-  }
-  
-  .form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  textarea{
-    margin-top: 0rem;
-    height: 5rem;
-    padding: 0.5rem;
-    border: 2px solid #007bff;
-    border-radius: 3px;
-  }
-  
-  .input{
-    margin: 1rem;
-    width: 70%;
-    padding: 1 rem;
-    border: 2px solid #007bff;
-    border-radius: 3px;
-  }
-  
-  .text{
-    display: flex;
-    flex-direction: column;
-    width: 71%;
-  }
-  
-  input{
-    height : 1.5rem;
-  }
-  
-  label{
-    margin: 0.5rem;
-  }
-  
-  button{
-    margin: 1rem;
-    padding: 0.5rem;
-    background-color: #007bff;
-    color: white;
-    border: 2px solid #007bff;
-    border-radius: 2px;
-  }
-  
-  button:hover{
-    background-color: #0056b3;
-  }
-  
-  .plan{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    white-space: pre-line;
-    font-family: Arial, sans-serif;
-  }
-  
-  .plan button{
-    width: 5rem;
-  }
-  
-  .plan p{
-    border: 2px solid #007bff;
-    padding: 2rem;
-    width: 90%;
-    /* text-align: center; */
-  }
-  
-  
-  
-  
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./diet.jpg'); /* Background image for the entire page */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the background image */
+  font-family: 'Roboto', Arial, sans-serif; /* Default font family with fallback */
+}
+
+/* Import Google Fonts for Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.epic-container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.epic-title {
+  text-align: center;
+  color: #333; /* Title text color */
+  margin-bottom: 20px;
+  font-size: 2.5rem; /* Large font size for title */
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+}
+
+.epic-form {
+  width: 100%;
+  max-width: 1200px; /* Maximum width for the form */
+  display: flex;
+  flex-wrap: wrap; /* Wrap sections if they exceed the width */
+  justify-content: space-between; /* Space evenly between sections */
+}
+
+.epic-section {
+  width: calc(50% - 10px); /* Set width for each section (half minus spacing) */
+  max-height: 300px; /* Limit section height for scrolling */
+  overflow-y: auto; /* Enable vertical scroll for section */
+  border: 1px solid #ccc; /* Add border for section */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside section */
+  margin-bottom: 15px; /* Margin between sections */
+  background-color: #fff; /* White background for sections */
+  box-sizing: border-box;
+}
+
+.epic-section:first-child {
+  margin-right: 10px; /* Space between left and right sections */
+}
+
+.epic-section:last-child {
+  margin-left: 10px; /* Space between left and right sections */
+}
+
+.epic-section-title {
+  text-align: center;
+  font-size: 1.8rem; /* Larger font size for section titles */
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Title text color */
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+}
+
+.epic-field {
+  margin-bottom: 10px; /* Margin between fields */
+}
+
+.epic-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333; /* Label text color */
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+}
+
+.epic-input,
+.epic-textarea {
+  width: calc(100% - 16px); /* Adjust width to account for padding */
+  padding: 8px;
+  font-size: 1rem; /* Regular font size for inputs and textareas */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+}
+
+.epic-button {
+  width: 100%;
+  max-width: 300px; /* Maximum width for the button */
+  padding: 12px; /* Increase padding for larger button */
+  background-color: green; /* Green background color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem; /* Larger font size for button text */
+  cursor: pointer;
+  margin: 20px auto; /* Center the button horizontally with some margin */
+  display: block; /* Ensure it takes full width when centered */
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+}
+
+.plan {
+  width: 100%;
+  max-width: 600px; /* Maximum width for the plan container */
+  margin: 20px auto; /* Center the plan container with some margin */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  border: 1px solid #ccc; /* Border for the plan container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+  box-sizing: border-box;
+  text-align: center; /* Center align text */
+}
+
+.plan h1 {
+  font-size: 2rem; /* Large font size for the plan title */
+  color: #333; /* Title text color */
+  margin-bottom: 20px; /* Bottom margin for spacing */
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+}
+
+.diet-plan {
+  max-height: 300px; /* Limit height for scrolling */
+  overflow-y: auto; /* Enable vertical scroll */
+  text-align: left; /* Left align diet plan content */
+  font-size: 1rem; /* Regular font size for plan content */
+  color: #555; /* Content text color */
+  margin-bottom: 20px; /* Bottom margin for spacing */
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+}
+
+.plan button {
+  padding: 12px 24px; /* Padding for the button */
+  background-color: green; /* Green background color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem; /* Font size for button text */
+  cursor: pointer;
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+}
+
+.plan button:hover {
+  background-color: darkgreen; /* Darker green on hover */
+}
