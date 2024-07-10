@@ -1,14 +1,14 @@
 /* Footer.css */
 
 .footer {
-    background-color: #007bff;
+    background-color: #33383e;
     padding: 20px 0;
     text-align: center;
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
-    color: white; /* Set font color to white */
+    color: rgb(122, 13, 13); /* Set font color to white */
     font-size: 14px;
     font-family: 'Arial', sans-serif;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
