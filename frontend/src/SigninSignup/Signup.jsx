@@ -30,8 +30,12 @@ const Signup = () => {
                 alert("User data is not valid"); // Handle other status codes or errors
             }
         } catch (err) {
+<<<<<<< HEAD
             setError(err.response.data.message || "An unexpected error occurred.");
         } finally {
+=======
+            setError(err.response.data);
+>>>>>>> 212a01aab5169bc8ba4fa5fd2b4a0f9f23de4c92
             setLoading(false);
         }
     };

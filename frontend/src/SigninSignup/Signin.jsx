@@ -28,7 +28,7 @@ const Signin = () => {
         } catch (err) {
             console.error('Error:', err); // Log the error for debugging
             if (err.response && err.response.data) {
-                alert(err.response.data.message || "An error occurred");
+                alert(err.response.data || "An error occurred");
             } else {
                 alert("An unexpected error occurred.");
             }
